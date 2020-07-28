@@ -1,0 +1,11 @@
+from flask import Flask,request,jsonify
+app = Flask(__name__)
+
+@app.route('/', methods=["GET"])
+def log():
+    posted_data = request.get_json()
+    name = posted_data['name']
+    return jsonify("User found " + name)
+
+if __name__ == '__main__':
+    app.run()
